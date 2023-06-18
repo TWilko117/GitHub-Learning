@@ -172,3 +172,40 @@ If you do happen to try and merge it will display any conflicts within the code 
 Once a branch has been merged there is no need to keep that branch anymore and it can then be deleted, this can be done with the command *git branch -d* followed by the name of the branch that you wish to delete. 
 
 If the branch hasn't been merged then you will have to capitalise the D e.g. *git branch -D* followed by the branch name.
+
+## Git Collaborations
+The workflow for Git collaborations should typically follow the below:
+1. Fetch and merge changes from remote.
+2. Create a branch to work on a new feature
+3. Develop the feature on your branch and commit the work.
+4. Fetch and merge from the remote again incase new commits were made while you were working.
+5. Push your branch to the remote.
+
+## Remotes
+If working collaboratively on a project with another person the easiest way to do this is by using remotes, it allows collaborators to make their own individual changes and then merge them when they are ready to do so.
+
+To clone a remote repository you can use *git clone "remote_location" "clone_name"*.
+- Remote location tells git where to find the remote, this can be either a web address of a file path.
+- Clone name is the you will give the directory for git to clone the repository.
+
+When you have a clone of the remote on your computer one thing Git will do is give the remote address you cloned from the name origin, you can check a list of the Git projects remotes with *git remote -v*.
+
+## Switch Between Remotes
+To allow you to switch between the remote and clone you will need to use *cd ../"name"*
+
+## Git Fetch
+If the origin remote is altered in any way then your clone will no longer be up to date, an easy way to see if any changes have been made is with *git fetch* this will bring the changes over without merging them on a remote branch. This only brings the changes over to your local copy, they are still not visible and changes cannot be made yet, to allow this you will have to integrate them with a merge *git merge origin/main*, when you do this Git performs a fast-forward bringing your local main branch up to speed with the latests commits made on the remote.
+
+## Git Push Origin
+Once any changes have been finalised with a commit you then need to push your branch up to the remote for others to review your changes, this can be done with *git push origin* followed by the name of the branch you were working on.
+
+## GitHub Pages
+GitHub pages is a service that allows you to deploy a website to the internet, it is a free service and includes features such as:
+- Easy setup
+- Seamless collaboration using Git and GitHub
+- Free hosting with >95% uptime
+- Live updating with normal GitHub workflow
+
+When you are ready to share your project this is known as deploying, this can happen multiple times across the course of the project and consists of packaging and sharing on the internet.
+
+Deploying on GitHub pages is automatic, once set up, deploying happens whenever you push local changes to your remote.
